@@ -1,0 +1,6 @@
+utilizando o sinon para acessar os dados locais que foram criados através da api do star wars
+assim retirando a dependencia que nossos testes vao ter de servidores online e garantindo
+que irão funcionar em todos os lugares
+
+deepstrictEqual do modulo assert compara o primeiro resultado com o segundo
+sendo o primeiro sempre o resultado que temos (atual) e dps o expected (o que seria esperado ou correto)

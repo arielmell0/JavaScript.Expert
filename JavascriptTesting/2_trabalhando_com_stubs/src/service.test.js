@@ -9,6 +9,7 @@ const mocks = {
 }
 ;
 (async () => {
+    //          Vai para a internet !!
     // {
     //     const service = new Service()
     //     const withoutStub = await service.makeRequest(BASE_URL_2)
