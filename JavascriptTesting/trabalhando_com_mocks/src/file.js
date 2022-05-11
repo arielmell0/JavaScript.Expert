@@ -61,10 +61,3 @@ class File {
         return users
     }
 }
-
-(async () => {
-    const result = await File.csvToJson('./../mocks/threeItems-valid.csv')
-    // const result = await File.csvToJson('./../mocks/fourItems-invalid.csv')
-    // const result = await File.csvToJson('../mocks/invalid-header.csv')
-    console.log('result', result)
-})()
