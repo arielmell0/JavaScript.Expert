@@ -1,5 +1,5 @@
 const { readFile } = require('fs/promises')
-const { join } = require('path')
+const User = require('./user')
 const { error } = require('./constants')
 
 const DEFAULT_OPTION = {
@@ -12,13 +12,13 @@ class File {
         const content = await File.getFileContent(filePath)
         const validation = File.isValid(content)
         if(!validation.valid) throw new Error(validation.error)
+        const users = File.parseCSVToJson(content)
 
-        return content
+        return users
     }
 
     static async getFileContent(filePath) {
-        const filename = join(__dirname, filePath)
-        return (await readFile(filename)).toString("utf8")
+        return (await readFile(filePath)).toString("utf8")
     }
 
     static isValid(csvString, options = DEFAULT_OPTION) {
@@ -43,6 +43,22 @@ class File {
         }
 
         return { valid: true }
+    }
+
+    static parseCSVToJson(csvString) {
+        const lines = csvString.split('\n')
+        // remove o primeiro itme e joga na variavel
+        const firstÇine = lines.shift()
+        const header = firstLine.split(',')
+        const users = lines.map(line => {
+            const columns = line.split(',')
+            let user = {}
+            for(const index in columns) {
+                user[header[index]] = columns[index]
+            }
+            return new User(user)
+        })
+        return users
     }
 }
 
