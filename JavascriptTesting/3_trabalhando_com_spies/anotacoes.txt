@@ -1,0 +1,1 @@
+Spies observam o comportamento da sua função, evitando quebras no seu sitema em algoritmos complexos ou chamadas recursivas

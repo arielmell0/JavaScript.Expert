@@ -1,0 +1,15 @@
+{
+  "name": "3_trabalhando_com_spies",
+  "version": "1.0.0",
+  "description": "",
+  "main": "fibonacci.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "sinon": "^14.0.0"
+  }
+}
