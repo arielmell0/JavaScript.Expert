@@ -1,6 +1,6 @@
 class Fibonacci {
     *execute (input, current = 0, next = 1) {
-        console.count('execute!')
+        // console.count('execute!')
         if(input === 0) {
             return 0
         }

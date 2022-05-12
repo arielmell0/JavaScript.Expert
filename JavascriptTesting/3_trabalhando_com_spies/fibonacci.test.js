@@ -32,7 +32,15 @@ const assert = require('assert')
         // [0] input = 1, current = 3, next = 5
         // [0] input = 0 -> PARA
 
-        const call = spy.getCall(2)
-        console.log('call', call)
+        const { args } = spy.getCall(2)
+        const expectedResult = [0, 1, 1, 2, 3]
+        const expectedParams = Object.values({
+            input: 3,
+            current: 1,
+            next: 2
+        })
+
+        assert.deepStrictEqual(args, expectedParams)
+        assert.deepStrictEqual(results, expectedResult)
     }
 })()
