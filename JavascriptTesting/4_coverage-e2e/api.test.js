@@ -15,11 +15,22 @@ describe('API Suite test', () => {
 
     describe('/hello', () => {
         it('should request an inexistent route /hi and redirect to /hello', async() => {
-            const response = await request('/app')
-                .get('/contact')
+            const response = await request(app)
+                .get('/hello')
                 .expect(200)
 
         assert.deepStrictEqual(response.text, 'Hello world!')
+        })
+    })
+
+    describe('/login', () => {
+        it('should login sucessfully on the login route and return HTTP Status 200', async() => {
+            const response = await request(app)
+                .post('/login')
+                .send({ username: "ariel1132", password: "coxinha123"})
+                .expect(200)
+
+        assert.deepStrictEqual(response.text, 'Logging has succeded!')
         })
     })
 })
