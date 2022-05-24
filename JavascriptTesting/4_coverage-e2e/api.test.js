@@ -33,4 +33,15 @@ describe('API Suite test', () => {
         assert.deepStrictEqual(response.text, 'Logging has succeded!')
         })
     })
+
+    describe('/login', () => {
+        it('should unauthorize a request when requesting it using wrong credentials and return HTTP status 401', async() => {
+            const response = await request(app)
+                .post('/login')
+                .send({ username: "XuxaDaSilva", password: "321coxinha"})
+                .expect(401)
+
+        assert.deepStrictEqual(response.text, 'Logging has succeded!')
+        })
+    })
 })
